@@ -3,100 +3,247 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sentosa Tanjaya | Backend Engineer</title>
+    <title>Sentosa Tanjaya | System Architect</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Minimalist Reset */
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #111;
-            background: #fff;
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 40px 20px;
+        :root {
+            --bg: #0a0a0c;
+            --accent: #00ff9d; /* Cyber Mint */
+            --text: #e2e2e2;
+            --surface: #16161a;
+            --border: #2a2a30;
         }
 
-        /* Typography */
-        h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem; }
-        h2 { font-size: 1.1rem; font-weight: 700; text-transform: uppercase; margin-top: 3rem; border-bottom: 1px solid #eee; padding-bottom: 5px; }
-        h3 { font-size: 1rem; margin-bottom: 0.2rem; }
-        p { margin: 0.5rem 0; color: #444; }
-        
-        a { color: #111; text-decoration: underline; text-underline-offset: 3px; }
-        a:hover { background: #111; color: #fff; text-decoration: none; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        .meta { font-size: 0.9rem; color: #666; font-family: monospace; }
-        
-        section { margin-bottom: 2rem; }
-        
-        .project { margin-bottom: 1.5rem; }
-        .tag { font-family: monospace; font-size: 0.85rem; background: #f4f4f4; padding: 2px 6px; margin-right: 5px; }
+        body {
+            background-color: var(--bg);
+            /* Subtle tech grid background */
+            background-image: radial-gradient(var(--border) 1px, transparent 1px);
+            background-size: 30px 30px;
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            padding: 0 1.5rem;
+        }
 
-        .contact-list { list-style: none; padding: 0; }
-        .contact-list li { margin-bottom: 8px; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
 
-        nav { margin-bottom: 4rem; font-family: monospace; }
-        nav a { margin-right: 15px; text-decoration: none; color: #666; }
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
 
-        footer { margin-top: 5rem; font-size: 0.8rem; color: #999; border-top: 1px solid #eee; padding-top: 20px; }
+        /* Navigation */
+        nav {
+            padding: 2rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover { opacity: 1; color: var(--accent); }
+
+        /* Hero */
+        header {
+            padding: 4rem 0;
+        }
+
+        .status-pill {
+            display: inline-block;
+            padding: 4px 12px;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 0 10px rgba(0, 255, 157, 0.2);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .hero-p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            color: #a1a1aa;
+        }
+
+        /* Projects */
+        .section-label {
+            color: var(--accent);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .card h3 { margin-bottom: 0.5rem; }
+        .card p { font-size: 0.95rem; color: #a1a1aa; margin-bottom: 1.5rem; }
+
+        .tag-row { display: flex; gap: 8px; flex-wrap: wrap; }
+        .tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: #64748b;
+        }
+
+        /* Stack */
+        .stack-item {
+            display: inline-block;
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            margin: 0 8px 12px 0;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            background: rgba(255,255,255,0.02);
+        }
+
+        .stack-item:hover { border-color: var(--text); }
+
+        /* Footer / Contact */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 4rem 0 2rem 0;
+            margin-top: 4rem;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: #000;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 1rem;
+            transition: 0.3s;
+        }
+
+        .contact-btn:hover {
+            box-shadow: 0 0 20px var(--accent);
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 700px) {
+            h1 { font-size: 2.5rem; }
+            .grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
-    <nav>
-        <a href="#about">/about</a>
-        <a href="#work">/work</a>
-        <a href="#stack">/stack</a>
-        <a href="#contact">/contact</a>
-    </nav>
+    <div class="container">
+        <nav>
+            <div class="mono" style="font-weight: 700; color: var(--accent);">ST_PORTFOLIO_V2</div>
+            <div class="nav-links mono">
+                <a href="#work">// work</a>
+                <a href="#contact">// contact</a>
+            </div>
+        </nav>
 
-    <header id="about">
-        <h1>Sentosa Tanjaya</h1>
-        <p class="meta">Backend Engineer · Informatics Graduate</p>
-        <p style="font-size: 1.1rem; margin-top: 1.5rem;">
-            I build stable, scalable server-side systems. Focused on clean architecture, 
-            API reliability, and efficient database management.
-        </p>
-        <p>
-            <a href="asset/doc/CV_Sentosa%20Tanjaya(English).pdf">Download CV (PDF)</a>
-        </p>
-    </header>
+        <header>
+            <div class="status-pill mono">AVAILABLE_FOR_HIRE</div>
+            <h1>Sentosa Tanjaya. <br><span style="color: #666;">Backend Developer.</span></h1>
+            <p class="hero-p">Engineering high-performance backend systems with Laravel, PHP, and MySQL. Focusing on reliability, scalability, and clean code.</p>
+            <div style="margin-top: 2rem;">
+                <a href="asset/doc/CV_Sentosa%20Tanjaya(English).pdf" class="mono" style="color: var(--accent); text-decoration: none;">&gt; DOWNLOAD_CV.EXE</a>
+            </div>
+        </header>
 
-    <h2 id="work">Work</h2>
-    
-    <div class="project">
-        <h3>SumberRejeki Inventory</h3>
-        <p>Web-based inventory management with stock tracking and automated reporting.</p>
-        <span class="tag">Laravel</span><span class="tag">MySQL</span><span class="tag">PHP</span>
-        <br>
-        <a href="https://github.com/RyuuouR/SumberRejeki" class="meta">View Source</a>
+        <section id="work">
+            <span class="section-label mono">Featured_Deployments</span>
+            <div class="grid">
+                <div class="card">
+                    <h3 class="mono">SumberRejeki</h3>
+                    <p>Advanced inventory management system with real-time tracking and automated warehouse reporting.</p>
+                    <div class="tag-row">
+                        <span class="tag">#LARAVEL</span>
+                        <span class="tag">#MYSQL</span>
+                        <span class="tag">#MVC</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="mono">Midtrans_Gateway</h3>
+                    <p>Core payment integration logic handling secure handshakes, webhooks, and ledger consistency.</p>
+                    <div class="tag-row">
+                        <span class="tag">#API_CORE</span>
+                        <span class="tag">#FINTECH</span>
+                        <span class="tag">#PHP8</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="stack">
+            <span class="section-label mono">Core_Tech_Stack</span>
+            <div class="stack-wrap">
+                <div class="stack-item mono">Laravel</div>
+                <div class="stack-item mono">PHP 8.x</div>
+                <div class="stack-item mono">MySQL</div>
+                <div class="stack-item mono">PostgreSQL</div>
+                <div class="stack-item mono">Git / GitHub</div>
+                <div class="stack-item mono">REST API</div>
+                <div class="stack-item mono">Python</div>
+                <div class="stack-item mono">JavaScript</div>
+            </div>
+        </section>
+
+        <footer id="contact">
+            <span class="section-label mono">Initialize_Connection</span>
+            <h2>Ready to build something solid?</h2>
+            <p style="margin: 1rem 0; color: #a1a1aa;">Currently looking for Backend roles or specialized freelance collaborations.</p>
+            <a href="mailto:sentosa.taken@gmail.com" class="contact-btn mono">SEND_MESSAGE</a>
+            
+            <div style="margin-top: 3rem; display: flex; gap: 20px;" class="mono">
+                <a href="https://github.com/RyuuouR" style="color: #666; font-size: 0.8rem;">GitHub</a>
+                <a href="https://wa.me/628137947722" style="color: #666; font-size: 0.8rem;">WhatsApp</a>
+                <a href="https://www.instagram.com/sentosa_tjy/" style="color: #666; font-size: 0.8rem;">Instagram</a>
+            </div>
+            
+            <p class="mono" style="margin-top: 4rem; font-size: 0.7rem; color: #333;">
+                © 2026 Sentosa Tanjaya. ALL RIGHTS RESERVED. 
+            </p>
+        </footer>
     </div>
-
-    <div class="project">
-        <h3>Midtrans Payment Core</h3>
-        <p>Reliable payment gateway integration for transaction verification and webhooks.</p>
-        <span class="tag">Midtrans API</span><span class="tag">REST</span><span class="tag">PHP</span>
-        <br>
-        <a href="https://github.com/RyuuouR/Midtrans-Payment-Gateway" class="meta">View Source</a>
-    </div>
-
-    <h2 id="stack">Stack</h2>
-    <p class="meta">
-        Primary: PHP, Laravel, MySQL, JavaScript <br>
-        Tools: Git, Python, RESTful APIs
-    </p>
-
-    <h2 id="contact">Contact</h2>
-    <ul class="contact-list">
-        <li>Email: <a href="mailto:sentosa.taken@gmail.com">sentosa.taken@gmail.com</a></li>
-        <li>WhatsApp: <a href="https://wa.me/628137947722">+62 813-7947-722</a></li>
-        <li>GitHub: <a href="https://github.com/RyuuouR">github.com/RyuuouR</a></li>
-        <li>Instagram: <a href="https://www.instagram.com/sentosa_tjy/">@sentosa_tjy</a></li>
-    </ul>
-
-    <footer>
-        <p>© 2026 Sentosa Tanjaya. No tracking. No cookies. Just code.</p>
-    </footer>
 
 </body>
 </html>
