@@ -1,308 +1,102 @@
-Here is a completely fresh, unique portfolio design with a different layout and aesthetic — minimal, architectural, and distinctive.
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sentosa Tanjaya · Backend Engineering</title>
-    <!-- Simple, clean fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Sentosa Tanjaya | Backend Engineer</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        /* Minimalist Reset */
         body {
-            background-color: #faf9f8;
-            color: #1a1e24;
-            font-family: 'DM Sans', sans-serif;
-            line-height: 1.5;
-        }
-        .mono {
-            font-family: 'Fira Code', monospace;
-            font-size: 0.85rem;
-        }
-        .container {
-            max-width: 1200px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #111;
+            background: #fff;
+            max-width: 700px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 40px 20px;
         }
-        /* unique layout: left-aligned navigation, two-column sections */
-        nav {
-            padding: 2rem 0 1rem 0;
-            border-bottom: 2px solid #e2e8f0;
-            margin-bottom: 3rem;
-        }
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            font-weight: 500;
-        }
-        .nav-links a {
-            text-decoration: none;
-            color: #2d3a4b;
-            transition: 0.2s;
-        }
-        .nav-links a:hover {
-            color: #0f3b5c;
-            text-decoration: underline;
-            text-underline-offset: 6px;
-        }
-        .section-title {
-            font-size: 1.8rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            margin-bottom: 2rem;
-            border-left: 4px solid #2c7da0;
-            padding-left: 1rem;
-        }
-        .project-card {
-            background: white;
-            border: 1px solid #e9edf2;
-            padding: 1.8rem;
-            transition: all 0.2s;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
-        }
-        .project-card:hover {
-            border-color: #2c7da0;
-            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.1);
-            transform: translateY(-3px);
-        }
-        .skill-badge {
-            background: #eef2f6;
-            padding: 0.25rem 0.9rem;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: #1f3b4c;
-        }
-        .contact-line {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            padding: 0.6rem 1.2rem;
-            border-radius: 60px;
-            transition: 0.2s;
-        }
-        .contact-line:hover {
-            border-color: #2c7da0;
-            background: #f8fafc;
-        }
-        footer {
-            margin-top: 5rem;
-            border-top: 1px solid #e2e8f0;
-            padding: 2rem 0;
-            text-align: center;
-            color: #5b6e8c;
-            font-size: 0.8rem;
-        }
-        @media (max-width: 768px) {
-            .container { padding: 0 1.5rem; }
-            .grid-2 { grid-template-columns: 1fr; }
-        }
-        .grid-2 {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-        }
-        .highlight {
-            color: #2c7da0;
-            font-weight: 600;
-        }
-        .btn-outline-dark {
-            border: 1px solid #2c7da0;
-            background: transparent;
-            padding: 0.7rem 1.8rem;
-            border-radius: 40px;
-            font-weight: 500;
-            display: inline-block;
-            transition: 0.2s;
-            text-decoration: none;
-            color: #1e2f3e;
-        }
-        .btn-outline-dark:hover {
-            background: #2c7da0;
-            color: white;
-        }
-        a {
-            text-decoration: none;
-        }
-        .inline-icon {
-            margin-right: 6px;
-        }
+
+        /* Typography */
+        h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem; }
+        h2 { font-size: 1.1rem; font-weight: 700; text-transform: uppercase; margin-top: 3rem; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        h3 { font-size: 1rem; margin-bottom: 0.2rem; }
+        p { margin: 0.5rem 0; color: #444; }
+        
+        a { color: #111; text-decoration: underline; text-underline-offset: 3px; }
+        a:hover { background: #111; color: #fff; text-decoration: none; }
+
+        .meta { font-size: 0.9rem; color: #666; font-family: monospace; }
+        
+        section { margin-bottom: 2rem; }
+        
+        .project { margin-bottom: 1.5rem; }
+        .tag { font-family: monospace; font-size: 0.85rem; background: #f4f4f4; padding: 2px 6px; margin-right: 5px; }
+
+        .contact-list { list-style: none; padding: 0; }
+        .contact-list li { margin-bottom: 8px; }
+
+        nav { margin-bottom: 4rem; font-family: monospace; }
+        nav a { margin-right: 15px; text-decoration: none; color: #666; }
+
+        footer { margin-top: 5rem; font-size: 0.8rem; color: #999; border-top: 1px solid #eee; padding-top: 20px; }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <!-- Navigation : simple left aligned -->
     <nav>
-        <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 1rem;">
-            <div class="mono" style="font-weight: 600; font-size: 1.2rem;">SENTOSA TANJAYA</div>
-            <div class="nav-links">
-                <a href="#work">WORK</a>
-                <a href="#stack">STACK</a>
-                <a href="#contact">CONTACT</a>
-            </div>
-        </div>
+        <a href="#about">/about</a>
+        <a href="#work">/work</a>
+        <a href="#stack">/stack</a>
+        <a href="#contact">/contact</a>
     </nav>
 
-    <!-- Hero / About (clean, no bg effects) -->
-    <section style="margin: 3rem 0 4rem 0;">
-        <div style="max-width: 780px;">
-            <span class="mono" style="background: #eef2f6; padding: 0.2rem 0.8rem; border-radius: 20px; font-size: 0.75rem;">backend engineer</span>
-            <h1 style="font-size: 3.5rem; font-weight: 700; line-height: 1.2; margin: 1.2rem 0 1rem 0; letter-spacing: -0.03em;">Building solid,<br>scalable systems.</h1>
-            <p style="font-size: 1.2rem; color: #2c3e4e; max-width: 600px; margin-bottom: 2rem;">
-                I'm Sentosa Tanjaya, Bachelor of Informatics. I specialize in backend architecture, 
-                Laravel, PHP, and MySQL — delivering secure, maintainable digital solutions.
-            </p>
-            <a href="asset/doc/CV_Sentosa%20Tanjaya(English).pdf" download class="btn-outline-dark">
-                <i class="fa-regular fa-file-lines inline-icon"></i> Download CV
-            </a>
-            <div style="margin-top: 2rem; display: flex; gap: 1.5rem; font-size: 1.4rem;">
-                <a href="https://github.com/RyuuouR" target="_blank" style="color: #2d3a4b;"><i class="fa-brands fa-github"></i></a>
-                <a href="https://www.instagram.com/sentosa_tjy/" target="_blank" style="color: #2d3a4b;"><i class="fa-brands fa-instagram"></i></a>
-                <a href="mailto:sentosa.taken@gmail.com" style="color: #2d3a4b;"><i class="fa-regular fa-envelope"></i></a>
-            </div>
-        </div>
-    </section>
+    <header id="about">
+        <h1>Sentosa Tanjaya</h1>
+        <p class="meta">Backend Engineer · Informatics Graduate</p>
+        <p style="font-size: 1.1rem; margin-top: 1.5rem;">
+            I build stable, scalable server-side systems. Focused on clean architecture, 
+            API reliability, and efficient database management.
+        </p>
+        <p>
+            <a href="asset/doc/CV_Sentosa%20Tanjaya(English).pdf">Download CV (PDF)</a>
+        </p>
+    </header>
 
-    <!-- Projects section (different card style) -->
-    <section id="work" style="margin: 4rem 0;">
-        <div class="section-title">Selected projects</div>
-        <div class="grid-2">
-            <div class="project-card">
-                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
-                    <span style="background: #eef2f6; padding: 0.3rem 0.8rem; border-radius: 30px; font-size: 0.7rem; font-weight: 600;">Laravel · MySQL</span>
-                    <a href="https://github.com/RyuuouR/SumberRejeki" target="_blank" style="color: #2d3a4b;"><i class="fa-brands fa-github fa-lg"></i></a>
-                </div>
-                <h3 style="font-size: 1.5rem; font-weight: 600; margin: 0.5rem 0 0.5rem 0;">SumberRejeki Inventory</h3>
-                <p style="color: #2d3a4b; margin-bottom: 1.2rem;">Web-based inventory management system with stock tracking, automated reporting, and role-based access. Optimized for warehouse cycles.</p>
-                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                    <span class="skill-badge">PHP 8</span>
-                    <span class="skill-badge">Laravel</span>
-                    <span class="skill-badge">MySQL</span>
-                </div>
-            </div>
-            <div class="project-card">
-                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
-                    <span style="background: #eef2f6; padding: 0.3rem 0.8rem; border-radius: 30px; font-size: 0.7rem; font-weight: 600;">Payment Gateway</span>
-                    <a href="https://github.com/RyuuouR/Midtrans-Payment-Gateway" target="_blank" style="color: #2d3a4b;"><i class="fa-brands fa-github fa-lg"></i></a>
-                </div>
-                <h3 style="font-size: 1.5rem; font-weight: 600; margin: 0.5rem 0 0.5rem 0;">Midtrans Payment Core</h3>
-                <p style="color: #2d3a4b; margin-bottom: 1.2rem;">Secure payment integration handling transaction verification, webhooks, voucher logic. Built for fintech reliability.</p>
-                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                    <span class="skill-badge">Midtrans API</span>
-                    <span class="skill-badge">PHP</span>
-                    <span class="skill-badge">REST</span>
-                </div>
-            </div>
-        </div>
-        <div style="text-align: center; margin-top: 2rem;">
-            <a href="https://github.com/RyuuouR?tab=repositories" target="_blank" style="color: #2c7da0; font-weight: 500; border-bottom: 1px solid #2c7da0;">Browse all repositories →</a>
-        </div>
-    </section>
+    <h2 id="work">Work</h2>
+    
+    <div class="project">
+        <h3>SumberRejeki Inventory</h3>
+        <p>Web-based inventory management with stock tracking and automated reporting.</p>
+        <span class="tag">Laravel</span><span class="tag">MySQL</span><span class="tag">PHP</span>
+        <br>
+        <a href="https://github.com/RyuuouR/SumberRejeki" class="meta">View Source</a>
+    </div>
 
-    <!-- Stack: different presentation (chip-like grid) -->
-    <section id="stack" style="margin: 4rem 0;">
-        <div class="section-title">Technical stack</div>
-        <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
-            <div style="background: white; border: 1px solid #e2e8f0; border-radius: 60px; padding: 0.6rem 1.4rem; display: flex; align-items: center; gap: 8px;">
-                <i class="fa-brands fa-laravel" style="color: #f0522f;"></i> <span>Laravel</span>
-            </div>
-            <div style="background: white; border: 1px solid #e2e8f0; border-radius: 60px; padding: 0.6rem 1.4rem; display: flex; align-items: center; gap: 8px;">
-                <i class="fa-brands fa-php" style="color: #777bb3;"></i> <span>PHP</span>
-            </div>
-            <div style="background: white; border: 1px solid #e2e8f0; border-radius: 60px; padding: 0.6rem 1.4rem; display: flex; align-items: center; gap: 8px;">
-                <i class="fa-solid fa-database" style="color: #447e9b;"></i> <span>MySQL</span>
-            </div>
-            <div style="background: white; border: 1px solid #e2e8f0; border-radius: 60px; padding: 0.6rem 1.4rem; display: flex; align-items: center; gap: 8px;">
-                <i class="fa-brands fa-js" style="color: #e6a020;"></i> <span>JavaScript</span>
-            </div>
-            <div style="background: white; border: 1px solid #e2e8f0; border-radius: 60px; padding: 0.6rem 1.4rem; display: flex; align-items: center; gap: 8px;">
-                <i class="fa-brands fa-python" style="color: #3572a5;"></i> <span>Python</span>
-            </div>
-            <div style="background: white; border: 1px solid #e2e8f0; border-radius: 60px; padding: 0.6rem 1.4rem; display: flex; align-items: center; gap: 8px;">
-                <i class="fa-brands fa-git-alt"></i> <span>Git</span>
-            </div>
-        </div>
-    </section>
+    <div class="project">
+        <h3>Midtrans Payment Core</h3>
+        <p>Reliable payment gateway integration for transaction verification and webhooks.</p>
+        <span class="tag">Midtrans API</span><span class="tag">REST</span><span class="tag">PHP</span>
+        <br>
+        <a href="https://github.com/RyuuouR/Midtrans-Payment-Gateway" class="meta">View Source</a>
+    </div>
 
-    <!-- Contact section: explicit readable info + simple design -->
-    <section id="contact" style="margin: 4rem 0 2rem 0;">
-        <div class="section-title">Connect directly</div>
-        <div style="display: flex; flex-wrap: wrap; gap: 1.2rem; margin-top: 1rem;">
-            <a href="mailto:sentosa.taken@gmail.com" class="contact-line">
-                <i class="fa-regular fa-envelope" style="color: #2c7da0;"></i>
-                <span>sentosa.taken@gmail.com</span>
-            </a>
-            <a href="https://wa.me/628137947722" target="_blank" class="contact-line">
-                <i class="fa-brands fa-whatsapp" style="color: #25a35a;"></i>
-                <span>+62 813-7947-722</span>
-            </a>
-            <a href="https://www.instagram.com/sentosa_tjy/" target="_blank" class="contact-line">
-                <i class="fa-brands fa-instagram" style="color: #c32aa3;"></i>
-                <span>@sentosa_tjy</span>
-            </a>
-            <a href="https://github.com/RyuuouR" target="_blank" class="contact-line">
-                <i class="fa-brands fa-github"></i>
-                <span>github.com/RyuuouR</span>
-            </a>
-        </div>
-        <div style="margin-top: 3rem; background: #f0f4f9; padding: 1.5rem; border-radius: 1rem;">
-            <p class="mono" style="color: #1f3b4c;">💡 Open for backend engineering roles or freelance collaboration. Based in Indonesia, working remote worldwide.</p>
-        </div>
-    </section>
+    <h2 id="stack">Stack</h2>
+    <p class="meta">
+        Primary: PHP, Laravel, MySQL, JavaScript <br>
+        Tools: Git, Python, RESTful APIs
+    </p>
+
+    <h2 id="contact">Contact</h2>
+    <ul class="contact-list">
+        <li>Email: <a href="mailto:sentosa.taken@gmail.com">sentosa.taken@gmail.com</a></li>
+        <li>WhatsApp: <a href="https://wa.me/628137947722">+62 813-7947-722</a></li>
+        <li>GitHub: <a href="https://github.com/RyuuouR">github.com/RyuuouR</a></li>
+        <li>Instagram: <a href="https://www.instagram.com/sentosa_tjy/">@sentosa_tjy</a></li>
+    </ul>
 
     <footer>
-        <p>© 2026 Sentosa Tanjaya — built with minimal design, maximum clarity</p>
-        <p class="mono" style="margin-top: 0.5rem; font-size: 0.7rem;">backend · Laravel · PHP · MySQL</p>
+        <p>© 2026 Sentosa Tanjaya. No tracking. No cookies. Just code.</p>
     </footer>
-</div>
 
-<!-- Simple scroll and cleanup script (ensures no "site2" text) -->
-<script>
-    // Smooth anchor scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            if(href === "#" || href === "") return;
-            const target = document.querySelector(href);
-            if(target) {
-                e.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-    });
-
-    // final removal of any possible "site2" text nodes (extra safety)
-    (function removeSite2() {
-        const walker = document.createTreeWalker(
-            document.body,
-            NodeFilter.SHOW_TEXT,
-            {
-                acceptNode: (node) => {
-                    if (node.parentElement && ['SCRIPT', 'STYLE'].includes(node.parentElement.tagName))
-                        return NodeFilter.FILTER_REJECT;
-                    return NodeFilter.FILTER_ACCEPT;
-                }
-            }
-        );
-        const toProcess = [];
-        while(walker.nextNode()) toProcess.push(walker.currentNode);
-        toProcess.forEach(node => {
-            if(node.nodeValue && /site2/gi.test(node.nodeValue)) {
-                node.nodeValue = node.nodeValue.replace(/site2/gi, '');
-            }
-        });
-        document.querySelectorAll('[class*="site2" i], [id*="site2" i]').forEach(el => el.remove());
-    })();
-</script>
 </body>
 </html>
-```
