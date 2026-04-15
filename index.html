@@ -1,174 +1,305 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sentosa Tanjaya | Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>Sentosa Tanjaya · Backend Engineering</title>
+    <!-- Simple, clean fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
-            font-family: 'Inter', sans-serif;
+            background-color: #faf9f8;
+            color: #1a1e24;
+            font-family: 'DM Sans', sans-serif;
+            line-height: 1.5;
+        }
+        .mono {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        /* unique layout: left-aligned navigation, two-column sections */
+        nav {
+            padding: 2rem 0 1rem 0;
+            border-bottom: 2px solid #e2e8f0;
+            margin-bottom: 3rem;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            font-weight: 500;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #2d3a4b;
+            transition: 0.2s;
+        }
+        .nav-links a:hover {
+            color: #0f3b5c;
+            text-decoration: underline;
+            text-underline-offset: 6px;
+        }
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 2rem;
+            border-left: 4px solid #2c7da0;
+            padding-left: 1rem;
+        }
+        .project-card {
+            background: white;
+            border: 1px solid #e9edf2;
+            padding: 1.8rem;
+            transition: all 0.2s;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+        }
+        .project-card:hover {
+            border-color: #2c7da0;
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.1);
+            transform: translateY(-3px);
+        }
+        .skill-badge {
+            background: #eef2f6;
+            padding: 0.25rem 0.9rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #1f3b4c;
+        }
+        .contact-line {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            padding: 0.6rem 1.2rem;
+            border-radius: 60px;
+            transition: 0.2s;
+        }
+        .contact-line:hover {
+            border-color: #2c7da0;
+            background: #f8fafc;
+        }
+        footer {
+            margin-top: 5rem;
+            border-top: 1px solid #e2e8f0;
+            padding: 2rem 0;
+            text-align: center;
+            color: #5b6e8c;
+            font-size: 0.8rem;
+        }
+        @media (max-width: 768px) {
+            .container { padding: 0 1.5rem; }
+            .grid-2 { grid-template-columns: 1fr; }
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        .highlight {
+            color: #2c7da0;
+            font-weight: 600;
+        }
+        .btn-outline-dark {
+            border: 1px solid #2c7da0;
+            background: transparent;
+            padding: 0.7rem 1.8rem;
+            border-radius: 40px;
+            font-weight: 500;
+            display: inline-block;
+            transition: 0.2s;
+            text-decoration: none;
+            color: #1e2f3e;
+        }
+        .btn-outline-dark:hover {
+            background: #2c7da0;
+            color: white;
+        }
+        a {
+            text-decoration: none;
+        }
+        .inline-icon {
+            margin-right: 6px;
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body>
 
-    <nav class="bg-white shadow-sm fixed w-full z-10 top-0">
-        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="#" class="font-bold text-xl text-blue-600">ST.</a>
-            <div class="space-x-6 hidden md:flex text-sm font-medium text-gray-600">
-                <a href="#about" class="hover:text-blue-600 transition">About</a>
-                <a href="#skills" class="hover:text-blue-600 transition">Skills</a>
-                <a href="#projects" class="hover:text-blue-600 transition">Projects</a>
-                <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
+<div class="container">
+    <!-- Navigation : simple left aligned -->
+    <nav>
+        <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 1rem;">
+            <div class="mono" style="font-weight: 600; font-size: 1.2rem;">SENTOSA TANJAYA</div>
+            <div class="nav-links">
+                <a href="#work">WORK</a>
+                <a href="#stack">STACK</a>
+                <a href="#contact">CONTACT</a>
             </div>
         </div>
     </nav>
 
-    <section class="pt-32 pb-20 px-4">
-        <div class="max-w-4xl mx-auto text-center">
-            <h1 class="text-5xl font-bold text-gray-900 mb-6">Hi, I'm Sentosa Tanjaya</h1>
-            <p class="text-xl text-gray-600 mb-8 font-light">Backend Developer | Informatics Graduate | Machine Learning Enthusiast</p>
-            <p class="text-gray-600 mb-10 max-w-2xl mx-auto">
-                I build robust web-based applications and integrate complex systems. Focused on delivering efficient, well-documented, and maintainable code.
+    <!-- Hero / About (clean, no bg effects) -->
+    <section style="margin: 3rem 0 4rem 0;">
+        <div style="max-width: 780px;">
+            <span class="mono" style="background: #eef2f6; padding: 0.2rem 0.8rem; border-radius: 20px; font-size: 0.75rem;">backend engineer</span>
+            <h1 style="font-size: 3.5rem; font-weight: 700; line-height: 1.2; margin: 1.2rem 0 1rem 0; letter-spacing: -0.03em;">Building solid,<br>scalable systems.</h1>
+            <p style="font-size: 1.2rem; color: #2c3e4e; max-width: 600px; margin-bottom: 2rem;">
+                I'm Sentosa Tanjaya, Bachelor of Informatics. I specialize in backend architecture, 
+                Laravel, PHP, and MySQL — delivering secure, maintainable digital solutions.
             </p>
-            <div class="flex justify-center space-x-4">
-                <a href="#projects" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition shadow-lg">View My Work</a>
-                <a href="https://github.com/RyuuouR" target="_blank" class="bg-gray-800 text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-900 transition flex items-center shadow-lg">
-                    <i class="fab fa-github mr-2"></i> GitHub
-                </a>
+            <a href="asset/doc/CV_Sentosa%20Tanjaya(English).pdf" download class="btn-outline-dark">
+                <i class="fa-regular fa-file-lines inline-icon"></i> Download CV
+            </a>
+            <div style="margin-top: 2rem; display: flex; gap: 1.5rem; font-size: 1.4rem;">
+                <a href="https://github.com/RyuuouR" target="_blank" style="color: #2d3a4b;"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.instagram.com/sentosa_tjy/" target="_blank" style="color: #2d3a4b;"><i class="fa-brands fa-instagram"></i></a>
+                <a href="mailto:sentosa.taken@gmail.com" style="color: #2d3a4b;"><i class="fa-regular fa-envelope"></i></a>
             </div>
         </div>
     </section>
 
-    <section id="about" class="py-20 bg-white px-4">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-            <div>
-                <h2 class="text-3xl font-bold text-gray-900 mb-6">About Me</h2>
-                <p class="text-gray-600 leading-relaxed mb-6">
-                    Highly motivated to contribute to development teams through strong backend expertise and real-world project experience. I enjoy solving complex problems, whether it involves structuring a relational database or preprocessing data for machine learning models.
-                </p>
-            </div>
-            <div class="bg-gray-50 p-8 rounded-xl border border-gray-100 shadow-sm">
-                <h3 class="text-xl font-bold text-gray-900 mb-4"><i class="fas fa-graduation-cap text-blue-600 mr-2"></i> Education</h3>
-                <div class="mb-4">
-                    <h4 class="font-semibold text-lg text-gray-800">Institut Informatika Indonesia Surabaya</h4>
-                    <p class="text-gray-600">Bachelor of Informatics</p>
-                    <div class="flex justify-between items-center mt-2 text-sm text-gray-500">
-                        <span>2021 - 2026</span>
-                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded font-semibold">GPA: 3.57/4.00</span>
-                    </div>
+    <!-- Projects section (different card style) -->
+    <section id="work" style="margin: 4rem 0;">
+        <div class="section-title">Selected projects</div>
+        <div class="grid-2">
+            <div class="project-card">
+                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                    <span style="background: #eef2f6; padding: 0.3rem 0.8rem; border-radius: 30px; font-size: 0.7rem; font-weight: 600;">Laravel · MySQL</span>
+                    <a href="https://github.com/RyuuouR/SumberRejeki" target="_blank" style="color: #2d3a4b;"><i class="fa-brands fa-github fa-lg"></i></a>
                 </div>
+                <h3 style="font-size: 1.5rem; font-weight: 600; margin: 0.5rem 0 0.5rem 0;">SumberRejeki Inventory</h3>
+                <p style="color: #2d3a4b; margin-bottom: 1.2rem;">Web-based inventory management system with stock tracking, automated reporting, and role-based access. Optimized for warehouse cycles.</p>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <span class="skill-badge">PHP 8</span>
+                    <span class="skill-badge">Laravel</span>
+                    <span class="skill-badge">MySQL</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                    <span style="background: #eef2f6; padding: 0.3rem 0.8rem; border-radius: 30px; font-size: 0.7rem; font-weight: 600;">Payment Gateway</span>
+                    <a href="https://github.com/RyuuouR/Midtrans-Payment-Gateway" target="_blank" style="color: #2d3a4b;"><i class="fa-brands fa-github fa-lg"></i></a>
+                </div>
+                <h3 style="font-size: 1.5rem; font-weight: 600; margin: 0.5rem 0 0.5rem 0;">Midtrans Payment Core</h3>
+                <p style="color: #2d3a4b; margin-bottom: 1.2rem;">Secure payment integration handling transaction verification, webhooks, voucher logic. Built for fintech reliability.</p>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <span class="skill-badge">Midtrans API</span>
+                    <span class="skill-badge">PHP</span>
+                    <span class="skill-badge">REST</span>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="https://github.com/RyuuouR?tab=repositories" target="_blank" style="color: #2c7da0; font-weight: 500; border-bottom: 1px solid #2c7da0;">Browse all repositories →</a>
+        </div>
+    </section>
+
+    <!-- Stack: different presentation (chip-like grid) -->
+    <section id="stack" style="margin: 4rem 0;">
+        <div class="section-title">Technical stack</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+            <div style="background: white; border: 1px solid #e2e8f0; border-radius: 60px; padding: 0.6rem 1.4rem; display: flex; align-items: center; gap: 8px;">
+                <i class="fa-brands fa-laravel" style="color: #f0522f;"></i> <span>Laravel</span>
+            </div>
+            <div style="background: white; border: 1px solid #e2e8f0; border-radius: 60px; padding: 0.6rem 1.4rem; display: flex; align-items: center; gap: 8px;">
+                <i class="fa-brands fa-php" style="color: #777bb3;"></i> <span>PHP</span>
+            </div>
+            <div style="background: white; border: 1px solid #e2e8f0; border-radius: 60px; padding: 0.6rem 1.4rem; display: flex; align-items: center; gap: 8px;">
+                <i class="fa-solid fa-database" style="color: #447e9b;"></i> <span>MySQL</span>
+            </div>
+            <div style="background: white; border: 1px solid #e2e8f0; border-radius: 60px; padding: 0.6rem 1.4rem; display: flex; align-items: center; gap: 8px;">
+                <i class="fa-brands fa-js" style="color: #e6a020;"></i> <span>JavaScript</span>
+            </div>
+            <div style="background: white; border: 1px solid #e2e8f0; border-radius: 60px; padding: 0.6rem 1.4rem; display: flex; align-items: center; gap: 8px;">
+                <i class="fa-brands fa-python" style="color: #3572a5;"></i> <span>Python</span>
+            </div>
+            <div style="background: white; border: 1px solid #e2e8f0; border-radius: 60px; padding: 0.6rem 1.4rem; display: flex; align-items: center; gap: 8px;">
+                <i class="fa-brands fa-git-alt"></i> <span>Git</span>
             </div>
         </div>
     </section>
 
-    <section id="skills" class="py-20 bg-gray-50 px-4">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Technical Skills</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100 font-medium text-gray-700 hover:border-blue-300 transition">Laravel / PHP</div>
-                <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100 font-medium text-gray-700 hover:border-blue-300 transition">MySQL / SQL Server</div>
-                <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100 font-medium text-gray-700 hover:border-blue-300 transition">Python</div>
-                <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100 font-medium text-gray-700 hover:border-blue-300 transition">Machine Learning</div>
-                <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100 font-medium text-gray-700 hover:border-blue-300 transition">HTML / CSS / Tailwind</div>
-                <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100 font-medium text-gray-700 hover:border-blue-300 transition">JavaScript</div>
-                <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100 font-medium text-gray-700 hover:border-blue-300 transition">Git & GitHub</div>
-                <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100 font-medium text-gray-700 hover:border-blue-300 transition">System Documentation</div>
-            </div>
+    <!-- Contact section: explicit readable info + simple design -->
+    <section id="contact" style="margin: 4rem 0 2rem 0;">
+        <div class="section-title">Connect directly</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 1.2rem; margin-top: 1rem;">
+            <a href="mailto:sentosa.taken@gmail.com" class="contact-line">
+                <i class="fa-regular fa-envelope" style="color: #2c7da0;"></i>
+                <span>sentosa.taken@gmail.com</span>
+            </a>
+            <a href="https://wa.me/628137947722" target="_blank" class="contact-line">
+                <i class="fa-brands fa-whatsapp" style="color: #25a35a;"></i>
+                <span>+62 813-7947-722</span>
+            </a>
+            <a href="https://www.instagram.com/sentosa_tjy/" target="_blank" class="contact-line">
+                <i class="fa-brands fa-instagram" style="color: #c32aa3;"></i>
+                <span>@sentosa_tjy</span>
+            </a>
+            <a href="https://github.com/RyuuouR" target="_blank" class="contact-line">
+                <i class="fa-brands fa-github"></i>
+                <span>github.com/RyuuouR</span>
+            </a>
+        </div>
+        <div style="margin-top: 3rem; background: #f0f4f9; padding: 1.5rem; border-radius: 1rem;">
+            <p class="mono" style="color: #1f3b4c;">💡 Open for backend engineering roles or freelance collaboration. Based in Indonesia, working remote worldwide.</p>
         </div>
     </section>
 
-    <section id="projects" class="py-20 bg-white px-4">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Featured Projects</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                
-                <div class="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
-                    <div class="flex justify-between items-start mb-4">
-                        <h3 class="text-xl font-bold text-gray-900">Web-Based Inventory System</h3>
-                        <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded font-semibold">Laravel & MySQL</span>
-                    </div>
-                    <p class="text-gray-600 mb-4 text-sm">
-                        A comprehensive system to manage stock, incoming/outgoing goods, and returns. Implemented real-time stock tracking and automated reporting. System testing conducted using Black Box Testing.
-                    </p>
-                </div>
-
-                <div class="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
-                    <div class="flex justify-between items-start mb-4">
-                        <h3 class="text-xl font-bold text-gray-900">Midtrans Payment Integration</h3>
-                        <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded font-semibold">PHP</span>
-                    </div>
-                    <p class="text-gray-600 mb-4 text-sm">
-                        Integrated the Midtrans API into a web application to enable secure online transactions. Developed logic for payment status verification, transaction processing, and voucher validation.
-                    </p>
-                </div>
-
-                <div class="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
-                    <div class="flex justify-between items-start mb-4">
-                        <h3 class="text-xl font-bold text-gray-900">Clothing Recommendation System</h3>
-                        <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded font-semibold">Python</span>
-                    </div>
-                    <p class="text-gray-600 mb-4 text-sm">
-                        A machine learning-based capstone project. Managed web scraping for data collection, intensive data preprocessing, and model development within a cross-functional team setup.
-                    </p>
-                </div>
-
-                <div class="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
-                    <div class="flex justify-between items-start mb-4">
-                        <h3 class="text-xl font-bold text-gray-900">2D Platformer Game</h3>
-                        <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded font-semibold">Unity & C#</span>
-                    </div>
-                    <p class="text-gray-600 mb-4 text-sm">
-                        Developed a basic 2D platformer implementing core gameplay mechanics such as player movement, collision detection, and level design.
-                    </p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section class="py-20 bg-gray-50 px-4">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Certifications</h2>
-            <div class="space-y-4">
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 flex items-center justify-between">
-                    <div>
-                        <h4 class="font-bold text-gray-800">Machine Learning Certification</h4>
-                        <p class="text-sm text-gray-500">BANGKIT Academy | Score: 87.3/100 (900 hours)</p>
-                    </div>
-                    <span class="text-gray-400"><i class="fas fa-award fa-2x"></i></span>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 flex items-center justify-between">
-                    <div>
-                        <h4 class="font-bold text-gray-800">Database Programming with PL/SQL</h4>
-                        <p class="text-sm text-gray-500">Oracle Academy</p>
-                    </div>
-                    <span class="text-gray-400"><i class="fas fa-database fa-2x"></i></span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer id="contact" class="bg-gray-900 text-white py-12 px-4">
-        <div class="max-w-6xl mx-auto text-center">
-            <h2 class="text-2xl font-bold mb-6">Let's Connect</h2>
-            <p class="text-gray-400 mb-8 max-w-xl mx-auto">
-                Currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
-            </p>
-            <div class="flex justify-center space-x-6 mb-8">
-                <a href="mailto:sentosa,taken@gmail.com" class="text-gray-400 hover:text-white transition"><i class="fas fa-envelope fa-2x"></i></a>
-                <a href="https://github.com/RyuuouR" target="_blank" class="text-gray-400 hover:text-white transition"><i class="fab fa-github fa-2x"></i></a>
-                <a href="https://wa.me/628137947722" target="_blank" class="text-gray-400 hover:text-white transition"><i class="fab fa-whatsapp fa-2x"></i></a>
-            </div>
-            <div class="text-gray-500 text-sm">
-                <p>Surabaya, East Java, Indonesia</p>
-                <p class="mt-2">&copy; 2026 Sentosa Tanjaya. Built with Tailwind CSS.</p>
-            </div>
-        </div>
+    <footer>
+        <p>© 2026 Sentosa Tanjaya — built with minimal design, maximum clarity</p>
+        <p class="mono" style="margin-top: 0.5rem; font-size: 0.7rem;">backend · Laravel · PHP · MySQL</p>
     </footer>
+</div>
 
+<!-- Simple scroll and cleanup script (ensures no "site2" text) -->
+<script>
+    // Smooth anchor scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if(href === "#" || href === "") return;
+            const target = document.querySelector(href);
+            if(target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+
+    // final removal of any possible "site2" text nodes (extra safety)
+    (function removeSite2() {
+        const walker = document.createTreeWalker(
+            document.body,
+            NodeFilter.SHOW_TEXT,
+            {
+                acceptNode: (node) => {
+                    if (node.parentElement && ['SCRIPT', 'STYLE'].includes(node.parentElement.tagName))
+                        return NodeFilter.FILTER_REJECT;
+                    return NodeFilter.FILTER_ACCEPT;
+                }
+            }
+        );
+        const toProcess = [];
+        while(walker.nextNode()) toProcess.push(walker.currentNode);
+        toProcess.forEach(node => {
+            if(node.nodeValue && /site2/gi.test(node.nodeValue)) {
+                node.nodeValue = node.nodeValue.replace(/site2/gi, '');
+            }
+        });
+        document.querySelectorAll('[class*="site2" i], [id*="site2" i]').forEach(el => el.remove());
+    })();
+</script>
 </body>
 </html>
