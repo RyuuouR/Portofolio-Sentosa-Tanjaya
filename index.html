@@ -789,7 +789,7 @@
 
     // Robust download function with fallback
     const downloadBtn = document.getElementById('downloadCvBtn');
-    const cvPath = 'asset/doc/CV_Sentosa Tanjaya (English).pdf';
+    const cvPath = 'asset/doc/CV_Sentosa_Tanjaya_Informatika.pdf';
 
     async function downloadCV() {
       try {
@@ -798,7 +798,7 @@
           // File exists - trigger download
           const link = document.createElement('a');
           link.href = cvPath;
-          link.download = 'CV_Sentosa_Tanjaya(English).pdf';
+          link.download = 'CV_Sentosa_Tanjaya_Informatika.pdf';
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);
